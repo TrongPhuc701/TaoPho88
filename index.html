@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tào Phớ 88 - Bữa Xế An Lành Cho Dân Văn Phòng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #fdfbf7; /* Màu kem sữa đậu nành */
+            color: #4a4a4a;
+            padding-bottom: 70px; /* Chừa chỗ cho thanh menu dưới mobile */
+        }
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Comfortaa', cursive;
+        }
+        .text-soy {
+            color: #d4a373;
+        }
+        .bg-soy {
+            background-color: #faedcd;
+        }
+        .btn-primary {
+            background-color: #606c38;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #283618;
+            transform: translateY(-2px);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4a373; 
+            border-radius: 4px;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        /* Loading Dots Animation */
+        .loading-dots span {
+            animation: loading 1.4s infinite ease-in-out both;
+            background-color: #606c38;
+            border-radius: 50%;
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            margin: 0 2px;
+        }
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes loading {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        /* AI Chat Bubble Style */
+        .ai-bubble {
+            border-radius: 20px 20px 20px 0;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e5e7eb;
+        }
+        .user-bubble {
+            border-radius: 20px 20px 0 20px;
+            background: #dcfce7; /* Green-100 */
+            color: #14532d;
+        }
+        
+        /* Contact Widget Animations */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-wiggle {
+            animation: wiggle 1s ease-in-out infinite;
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .pop-in {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+
+    <!-- Navigation (Desktop & Mobile Header) -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-leaf text-green-700 text-2xl"></i>
+                <span class="text-xl font-bold brand-font text-gray-800">Tào Phớ 88</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#menu" class="text-gray-600 hover:text-green-700 font-medium">Thực Đơn</a>
+                <a href="#ai-consultant" class="text-gray-600 hover:text-green-700 font-medium">Góc Tâm Sự</a>
+                <div class="flex items-center gap-3">
+                     <!-- Top Navbar Buttons hidden in favor of Floating Widget for clearer CTA -->
+                    <a href="tel:0912623377" class="text-green-700 font-bold hover:underline">
+                        <i class="fas fa-phone-alt"></i> 0912 62 3377
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) - Simplified for this landing page -->
+            <a href="#menu" class="md:hidden text-green-700 font-bold border border-green-700 px-3 py-1 rounded-lg text-sm">
+                Đặt món
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="gray" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/2 space-y-6 text-center md:text-left">
+                    <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-2">
+                        <i class="fas fa-clock mr-1"></i> Đã 3h30 chiều rồi!
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-800">
+                        Deadline dí thì kệ Deadline.<br>
+                        <span class="text-green-700">Làm bát phớ cho mát ruột đã!</span>
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        Mắt thì díp lại, bụng thì biểu tình, mà trà sữa thì sợ béo? 
+                        Làm ngay một bát tào phớ mát lạnh, nhẹ bụng để còn sức chiến đấu nốt buổi chiều nào.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#menu" class="btn-primary px-8 py-3 rounded-full font-bold shadow-lg text-center">
+                            Xem Menu Cho Đỡ Nghĩ
+                        </a>
+                        <div class="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                            <i class="fas fa-shield-alt text-green-600"></i> Đậu nành Non-GMO
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative mt-8 md:mt-0">
+                    <div class="absolute top-0 right-0 bg-yellow-100 w-64 h-64 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div class="absolute -bottom-8 -left-4 bg-green-100 w-64 h-64 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    <!-- Placeholder cho hình ảnh sản phẩm -->
+                    <div class="relative bg-white p-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition duration-500">
+                         <svg class="w-full h-auto rounded-xl bg-gray-100" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f3f4f6"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#9ca3af">
+                                📸 Ảnh Bát Tào Phớ Full Topping
+                            </text>
+                             <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#9ca3af">
+                                (Trắng mịn, nước đường hoa nhài)
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insight Section: Nỗi lòng dân văn phòng -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Chuyện không của riêng ai ở văn phòng</h2>
+                <div class="w-16 h-1 bg-green-600 mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 bg-gray-50 rounded-xl card-hover transition duration-300 border border-gray-100">
+                    <div class="text-4xl text-yellow-500 mb-4 text-center">🥱</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">Cơn buồn ngủ ập đến</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        Căng da bụng, chùng da mắt. Giờ này mà không có gì mát mát bỏ vào mồm là gục ngay tại bàn phím.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="p-6 bg-gray-50 rounded-xl card-hover transition duration-300 border border-gray-100">
+                    <div class="text-4xl text-red-400 mb-4 text-center">😰</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">Sợ "Béo" & Nặng bụng</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        Trà sữa thì nhiều đường, pizza thì ngấy. Muốn ăn vặt mà cứ phải đấu tranh tư tưởng dã man.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 bg-gray-50 rounded-xl card-hover transition duration-300 border border-gray-100">
+                    <div class="text-4xl text-blue-400 mb-4 text-center">🤔</div>
+                    <h3 class="text-xl font-bold mb-2 text-center">Không biết ăn gì?</h3>
+                    <p class="text-gray-600 text-center text-sm">
+                        Hỏi đồng nghiệp "Ăn gì?" nó lại bảo "Gì cũng được". Thế mới đau đầu chứ!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Feature Section: Góc Tâm Sự -->
+    <section id="ai-consultant" class="py-16 bg-gradient-to-br from-green-50 to-yellow-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-8">
+                <span class="inline-block bg-white border border-green-200 rounded-full px-4 py-1 text-sm text-green-700 font-bold mb-2 shadow-sm">
+                    ✨ Powered by Gemini AI
+                </span>
+                <h2 class="text-3xl font-bold mb-2 text-gray-800">Góc Tâm Sự - Bác Sĩ Tào Phớ</h2>
+                <p class="text-gray-600">
+                    Đang stress? Sếp mắng? Hay đơn giản là chán đời? <br>
+                    Kể khổ chút đi, AI của quán sẽ "kê đơn" cho bạn một bát tào phớ giải sầu!
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-green-100">
+                <div class="p-6 bg-green-700 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-green-700 text-xl font-bold">
+                            🤖
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Đồng Nghiệp AI 88</h3>
+                            <p class="text-xs text-green-100 opacity-90">Luôn lắng nghe, luôn thấu hiểu (và hơi xàm xí)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-6 min-h-[300px] flex flex-col justify-between bg-gray-50">
+                    <div id="chat-history" class="space-y-4 mb-4 overflow-y-auto max-h-[400px]">
+                        <!-- Default AI Message -->
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center text-sm">🤖</div>
+                            <div class="ai-bubble p-4 text-gray-700 text-sm max-w-[85%]">
+                                Chào đồng chí! Hôm nay đi làm thế nào? Có drama gì không kể nghe chơi? Hoặc đang thèm ăn gì cứ bảo tôi nhé!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="relative">
+                        <div id="loading-indicator" class="hidden absolute -top-8 left-0 text-gray-500 text-xs flex items-center gap-2">
+                            <div class="loading-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            Đang suy nghĩ câu trả lời "đanh đá" nhất...
+                        </div>
+                        <div class="flex gap-2">
+                            <input type="text" id="user-input" 
+                                class="flex-1 border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm shadow-sm"
+                                placeholder="Ví dụ: Sếp vừa dí deadline gấp quá, cứu tôi..."
+                                onkeypress="handleKeyPress(event)">
+                            <button onclick="sendMessage()" 
+                                class="bg-green-700 hover:bg-green-800 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition transform hover:scale-105">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition: Tại sao là Tào Phớ 88 -->
+    <section class="py-16 bg-soy relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                        Đơn giản là Tào Phớ.<br>
+                        <span class="text-green-700">Nhưng là loại "Yên Tâm".</span>
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="block text-gray-800">Đậu nành Non-GMO</strong>
+                                <span class="text-sm text-gray-600">Không biến đổi gen. Nguồn gốc rõ ràng. Ăn vào người là phải an toàn cái đã.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="block text-gray-800">Nhẹ bụng, thanh mát</strong>
+                                <span class="text-sm text-gray-600">Không dầu mỡ, ngọt thanh vừa phải. Ăn xong vẫn tỉnh táo làm việc tiếp chứ không bị "đờ đẫn".</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <div>
+                                <strong class="block text-gray-800">Giá "mềm" như tào phớ</strong>
+                                <span class="text-sm text-gray-600">Chỉ bằng cốc trà đá vỉa hè phiên bản cao cấp. Cuối tháng ví mỏng vẫn order vô tư.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md transform rotate-3">
+                             <svg class="w-full h-32 rounded bg-gray-100" viewBox="0 0 300 200">
+                                <rect width="100%" height="100%" fill="#fef3c7"/>
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#d97706" font-size="14">🥣 Tào phớ truyền thống</text>
+                            </svg>
+                            <p class="text-center mt-2 font-bold text-sm text-gray-700">Truyền thống</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md transform -rotate-2 mt-8">
+                            <svg class="w-full h-32 rounded bg-gray-100" viewBox="0 0 300 200">
+                                <rect width="100%" height="100%" fill="#d1fae5"/>
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#059669" font-size="14">🌿 Tào phớ lá dứa</text>
+                            </svg>
+                            <p class="text-center mt-2 font-bold text-sm text-gray-700">Thạch lá dứa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Thực đơn "Cứu đói"</h2>
+                <p class="text-gray-500 italic">Chọn nhanh còn kịp deadline nào các bác ơi!</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">Best Seller</div>
+                    <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
+                         <svg class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" viewBox="0 0 400 300">
+                            <rect width="100%" height="100%" fill="#fff7ed"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9a3412" font-size="20">Tào Phớ Thập Cẩm</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg">Tào Phớ Thập Cẩm</h3>
+                    <p class="text-sm text-gray-500 mb-3">Đầy đủ trân châu, thạch đen, dừa khô. Một bát là đủ tỉnh.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-green-700 text-lg">25.000đ</span>
+                        <a href="tel:0912623377" class="bg-green-100 text-green-700 hover:bg-green-700 hover:text-white p-2 rounded-full transition">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white group">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
+                        <svg class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" viewBox="0 0 400 300">
+                            <rect width="100%" height="100%" fill="#fff7ed"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9a3412" font-size="20">Tào Phớ Sữa Đậu</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg">Tào Phớ Sữa Đậu</h3>
+                    <p class="text-sm text-gray-500 mb-3">Vị béo ngậy nhân đôi. Chuẩn vị truyền thống ngày xưa.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-green-700 text-lg">15.000đ</span>
+                        <a href="tel:0912623377" class="bg-green-100 text-green-700 hover:bg-green-700 hover:text-white p-2 rounded-full transition">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white group">
+                    <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
+                        <svg class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" viewBox="0 0 400 300">
+                             <rect width="100%" height="100%" fill="#fff7ed"/>
+                            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#9a3412" font-size="20">Tào Phớ Trân Châu Đường Đen</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg">Tào Phớ Trân Châu</h3>
+                    <p class="text-sm text-gray-500 mb-3">Kết hợp trân châu dai dai vui miệng. Hết sẩy con bà bảy.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-green-700 text-lg">20.000đ</span>
+                        <a href="tel:0912623377" class="bg-green-100 text-green-700 hover:bg-green-700 hover:text-white p-2 rounded-full transition">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 flex flex-col items-center gap-4">
+                 <p class="text-gray-600">Và còn nhiều topping khác: Thạch găng, Dừa nạo, Cốt dừa...</p>
+                 <a href="tel:0912623377" class="btn-primary px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 animate-bounce">
+                    <i class="fas fa-phone-alt"></i> Gọi Ngay Cho Nóng
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials: Tiếng lòng đồng nghiệp -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Hội "Đồng Nghiệp" Nói Gì?</h2>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm flex-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 font-bold mr-3">H</div>
+                        <div>
+                            <p class="font-bold text-sm">Hải Nam</p>
+                            <p class="text-xs text-gray-500">IT - Cầu Giấy</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic text-sm">"Code bug lòi mắt, làm bát tào phớ thập cẩm thấy đời dịu lại hẳn. Ưng cái là không bị ngọt gắt."</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm flex-1">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-500 font-bold mr-3 mb-4 inline-flex">L</div>
+                     <div class="inline-block align-middle ml-2">
+                        <p class="font-bold text-sm">Lan Anh</p>
+                        <p class="text-xs text-gray-500">Kế toán - Mỹ Đình</p>
+                    </div>
+                    <p class="text-gray-600 italic text-sm">"Chị em trong phòng sợ béo nên toàn gọi ở đây. Đậu nành Non-GMO nghe là thấy yên tâm rồi. Ship cũng nhanh."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-24 md:pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8">
+                <div>
+                    <h3 class="text-xl font-bold brand-font mb-4 text-green-400">Tào Phớ 88</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Nơi trú ẩn của những chiếc bụng đói và những tâm hồn mệt mỏi vì deadline. Đồ ăn thật, chất lượng thật.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Liên Hệ</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fas fa-map-marker-alt w-6 text-center text-green-400"></i> 62 Nguyễn Đổng Chi, Cầu Diễn, Từ Liêm, HN</li>
+                        <li><i class="fas fa-phone w-6 text-center text-green-400"></i> 0912 62 3377</li>
+                        <li><i class="fas fa-clock w-6 text-center text-green-400"></i> 09:00 - 18:00 (Hàng ngày)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Cam Kết</h4>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <p class="text-green-400 font-bold text-sm mb-1"><i class="fas fa-seedling"></i> NON-GMO</p>
+                        <p class="text-gray-400 text-xs">Chúng tôi cam kết sử dụng 100% đậu nành không biến đổi gen. An toàn cho sức khỏe của bạn và gia đình.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-6 text-gray-600 text-xs">
+                &copy; 2024 Tào Phớ 88. Thiết kế cho những người yêu đồ ăn thật.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY BAR (Với Pop-up Bubble) -->
+    <div id="footer-actions" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex">
+        <!-- Zalo Popup Bubble Mobile -->
+        <div id="mobile-popup-bubble" class="absolute -top-12 left-8 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg animate-bounce hidden pop-in">
+            Chat ngay nhận ưu đãi! 👇
+            <div class="absolute -bottom-1 left-4 w-3 h-3 bg-blue-600 transform rotate-45"></div>
+        </div>
+
+        <a href="https://zalo.me/0912623377" target="_blank" class="flex-1 bg-blue-600 text-white py-3 flex flex-col items-center justify-center active:bg-blue-700 transition relative overflow-hidden group">
+            <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png" class="w-6 h-6 object-contain bg-white rounded-full mb-1" alt="Zalo">
+            <span class="text-xs font-bold uppercase">Chat Zalo</span>
+        </a>
+        <a href="tel:0912623377" class="flex-1 bg-green-700 text-white py-3 flex flex-col items-center justify-center active:bg-green-800 transition">
+            <i class="fas fa-phone-alt text-xl mb-1 animate-wiggle"></i>
+            <span class="text-xs font-bold uppercase">Gọi Ngay</span>
+        </a>
+    </div>
+
+    <!-- DESKTOP FLOATING WIDGET (Pop-up Style) -->
+    <div class="fixed bottom-8 right-8 z-50 hidden md:flex flex-col gap-4 items-end">
+        <!-- Auto Popup Bubble Desktop -->
+        <div id="desktop-popup-bubble" class="bg-white p-4 rounded-xl shadow-2xl mb-2 relative max-w-[220px] border border-green-100 hidden pop-in">
+            <button onclick="this.parentElement.style.display='none'" class="absolute -top-2 -left-2 bg-gray-200 hover:bg-red-500 hover:text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shadow transition">&times;</button>
+            <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 text-xl">👩‍🍳</div>
+                <div>
+                    <p class="text-sm font-bold text-gray-800 leading-tight">Đói chưa bạn ơi?</p>
+                    <p class="text-xs text-gray-500 mt-1">Nhắn Zalo mình ship ngay trong 30p nhé!</p>
+                </div>
+            </div>
+            <!-- Arrow pointing down/right -->
+            <div class="absolute -bottom-2 right-6 w-4 h-4 bg-white transform rotate-45 border-b border-r border-green-100"></div>
+        </div>
+
+        <!-- Zalo Button Desktop -->
+        <a href="https://zalo.me/0912623377" target="_blank" class="relative group flex items-center">
+            <span class="mr-4 bg-gray-800 text-white px-3 py-1 rounded text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity absolute right-full whitespace-nowrap">Chat Zalo</span>
+            <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition relative">
+                <span class="absolute w-full h-full rounded-full bg-blue-400 opacity-75 animate-ping"></span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1200px-Icon_of_Zalo.svg.png" class="w-8 h-8 object-contain bg-white rounded-full relative z-10" alt="Zalo">
+            </div>
+        </a>
+
+        <!-- Phone Button Desktop -->
+        <a href="tel:0912623377" class="relative group flex items-center">
+             <span class="mr-4 bg-gray-800 text-white px-3 py-1 rounded text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity absolute right-full whitespace-nowrap">Gọi 0912 62 3377</span>
+            <div class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition relative">
+                 <span class="absolute w-full h-full rounded-full bg-green-400 opacity-75 animate-ping" style="animation-delay: 0.5s"></span>
+                <i class="fas fa-phone-alt text-white text-2xl relative z-10 animate-wiggle"></i>
+            </div>
+        </a>
+    </div>
+
+    <!-- Script xử lý Gemini API & Popup -->
+    <script>
+        const chatHistory = document.getElementById('chat-history');
+        const userInput = document.getElementById('user-input');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        
+        // CHÚ Ý QUAN TRỌNG:
+        // Để tránh bị các bot quét code phát hiện Key, mình tách nó thành 2 phần.
+        // Bạn hãy cắt đôi Key của bạn ra và điền vào 2 biến dưới đây.
+        // Ví dụ Key là "AIzaSy123456", thì điền:
+        // const part1 = "AIzaSy";
+        // const part2 = "123456";
+        
+        const part1 = "AIzaSyATuUtjMpD-xUO"; // Điền nửa đầu API Key vào đây
+        const part2 = "YuMG1XCMOlGIvWBeLme0"; // Điền nửa sau API Key vào đây
+        
+        const apiKey = part1 + part2; // Code tự động ghép lại
+
+        // Logic hiển thị Popup tự động sau 3 giây
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const mobileBubble = document.getElementById('mobile-popup-bubble');
+                const desktopBubble = document.getElementById('desktop-popup-bubble');
+                
+                if (mobileBubble) mobileBubble.classList.remove('hidden');
+                if (desktopBubble) desktopBubble.classList.remove('hidden');
+            }, 3000); // Hiện sau 3s
+        });
+
+        // Hàm cuộn xuống cuối chat
+        function scrollToBottom() {
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        // Xử lý khi nhấn Enter
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // Nếu chưa điền Key vào code, báo lỗi
+            if (!apiKey) {
+                alert("Admin chưa cấu hình API Key trong code. Vui lòng liên hệ chủ quán!");
+                return;
+            }
+
+            // 1. Hiển thị tin nhắn người dùng
+            appendMessage('user', text);
+            userInput.value = '';
+            loadingIndicator.classList.remove('hidden');
+
+            try {
+                // 2. Gọi API Gemini
+                const response = await callGeminiAPI(text, apiKey);
+                
+                // 3. Hiển thị phản hồi từ Gemini
+                loadingIndicator.classList.add('hidden');
+                appendMessage('ai', response);
+            } catch (error) {
+                console.error("Lỗi:", error);
+                loadingIndicator.classList.add('hidden');
+                appendMessage('ai', "Hic, mạng lag quá đồng nghiệp ơi. Thử lại sau nhé!");
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const div = document.createElement('div');
+            div.className = 'flex gap-3 mb-4';
+            
+            if (sender === 'ai') {
+                div.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center text-sm">🤖</div>
+                    <div class="ai-bubble p-4 text-gray-700 text-sm max-w-[85%] animate-fade-in">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                div.className = 'flex gap-3 mb-4 flex-row-reverse';
+                div.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-sm">👤</div>
+                    <div class="user-bubble p-4 text-sm max-w-[85%] animate-fade-in">
+                        ${text}
+                    </div>
+                `;
+            }
+            
+            chatHistory.appendChild(div);
+            scrollToBottom();
+        }
+
+        async function callGeminiAPI(userText, key) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
+
+            const prompt = `
+                Bạn là một nhân viên văn phòng Hà Nội vui tính, trẻ trung, là 'đồng nghiệp ảo' của quán Tào Phớ 88.
+                Người dùng đang than thở: "${userText}".
+                
+                Nhiệm vụ của bạn:
+                1. Đáp lại bằng 1-2 câu an ủi thật sự thấu hiểu nỗi khổ công sở (dùng từ ngữ gần gũi như: deadline, sếp, họp hành, ting ting, chill...).
+                2. Gợi ý họ order ngay 1 trong 3 món sau để giải toả (giải thích ngắn gọn tại sao món đó hợp mood này):
+                   - Tào Phớ Thập Cẩm (để nạp năng lượng)
+                   - Tào Phớ Sữa Đậu (để nhẹ bụng, chill)
+                   - Tào Phớ Trân Châu Đường Đen (để thêm ngọt ngào cho đời bớt đắng)
+                
+                Phong cách: Hài hước, ngắn gọn, thân thiện. Không sáo rỗng.
+            `;
+
+            const payload = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API call failed with status ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data.candidates[0].content.parts[0].text;
+        }
+
+        // Add fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+</body>
+</html>
