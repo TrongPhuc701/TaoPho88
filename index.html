@@ -99,10 +99,16 @@
         .pop-in {
             animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
+        /* Style cho phần Gieo Quẻ */
+        .lucky-card {
+            background-image: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
+            background-color: #ef4444; /* Red-500 */
+        }
     </style>
 </head>
 <body class="smooth-scroll">
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
@@ -113,6 +119,7 @@
             <div class="hidden md:flex items-center gap-6">
                 <a href="#menu" class="text-gray-600 hover:text-green-700 font-medium">Thực Đơn</a>
                 <a href="#ai-consultant" class="text-gray-600 hover:text-green-700 font-medium">Góc Tâm Sự</a>
+                <a href="#lucky-wishes" class="text-red-600 hover:text-red-800 font-bold"><i class="fas fa-gift mr-1"></i> Gieo Quẻ Lời Chúc</a>
                 <div class="flex items-center gap-3">
                     <a href="tel:0912623377" class="text-green-700 font-bold hover:underline">
                         <i class="fas fa-phone-alt"></i> 0912 62 3377
@@ -126,6 +133,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -146,10 +154,10 @@
                     </span>
                     <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-800">
                         Tinh hoa ẩm thực cổ truyền<br>
-                        <span class="text-green-700">Nghệ Thuật Thưởng Phớ Giữa Lòng Hà Nội</span>
+                        <span class="text-green-700">Gói trọn hương vị qua từng lát phớ</span>
                     </h1>
                     <p class="text-lg text-gray-600">
-                        Phớ Không chỉ là món ăn,
+                        Phớ không chỉ là món ăn,
                         mà là sự tinh tế được chắt chiu qua thời gian, mang trọn vị giác giữa lòng Hà Nội.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -166,7 +174,9 @@
                     <div class="absolute -bottom-8 -left-4 bg-green-100 w-64 h-64 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
                     
                     <div class="relative bg-white p-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition duration-500">
-                         <img src="fulltopping.png" 
+                         <!-- Fallback Image if local not found -->
+                         <img src="https://images.unsplash.com/photo-1594488516901-d70377227dd1?q=80&w=800&auto=format&fit=crop" 
+                              onerror="this.src='https://via.placeholder.com/600x400?text=Tao+Pho+88'"
                               alt="Bát tào phớ full topping" 
                               class="w-full h-auto rounded-xl bg-gray-100 object-cover shadow-sm">
                     </div>
@@ -175,6 +185,7 @@
         </div>
     </section>
 
+    <!-- Insight Section -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -210,6 +221,7 @@
         </div>
     </section>
 
+    <!-- AI Feature Section: Góc Tâm Sự -->
     <section id="ai-consultant" class="py-16 bg-gradient-to-br from-green-50 to-yellow-50">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-8">
@@ -269,6 +281,85 @@
         </div>
     </section>
 
+    <!-- NEW SECTION: AI Lời Chúc -->
+    <section id="lucky-wishes" class="py-16 bg-red-50 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 text-red-200 text-9xl opacity-20 -translate-x-10 -translate-y-10"><i class="fas fa-fan"></i></div>
+        <div class="absolute bottom-0 right-0 text-yellow-200 text-9xl opacity-20 translate-x-10 translate-y-10"><i class="fas fa-star"></i></div>
+
+        <div class="container mx-auto px-4 max-w-3xl relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-2 text-red-700 brand-font">Gieo Quẻ Lời Chúc - Thánh Thơ Tào Phớ</h2>
+                <p class="text-gray-600">
+                    Bí từ không biết chúc Sếp, chúc Crush sao cho "ngầu"? <br>
+                    Để AI Tào Phớ gieo cho bạn một quẻ lời chúc vừa hài, vừa chất nhé!
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-4 border-red-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Bạn muốn chúc ai?</label>
+                        <select id="wish-recipient" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-red-400 outline-none">
+                            <option value="Sếp khó tính">Sếp khó tính</option>
+                            <option value="Đồng nghiệp thân thiết">Đồng nghiệp thân thiết</option>
+                            <option value="Crush">Crush (Người thầm thương)</option>
+                            <option value="Người yêu cũ">Người yêu cũ (cho ngầu)</option>
+                            <option value="Bố mẹ">Bố mẹ yêu dấu</option>
+                            <option value="Bản thân">Bản thân mình (động viên)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">Nhân dịp gì thế?</label>
+                        <select id="wish-occasion" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-red-400 outline-none">
+                            <option value="Ngày mới/Đầu tuần">Ngày mới / Thứ 2 đầu tuần</option>
+                            <option value="Tết Nguyên Đán">Tết Nguyên Đán</option>
+                            <option value="Quốc tế Phụ nữ 8/3">Quốc tế Phụ nữ 8/3</option>
+                            <option value="Phụ nữ VN 20/10">Phụ nữ Việt Nam 20/10</option>
+                            <option value="Giáng Sinh">Giáng Sinh / Noel</option>
+                            <option value="Sinh Nhật">Sinh Nhật</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6">
+                    <button onclick="generateWish()" id="btn-gen-wish" class="lucky-card text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition flex items-center justify-center gap-2 mx-auto">
+                        <i class="fas fa-magic"></i> Gieo Lời Chúc Ngay
+                    </button>
+                </div>
+
+                <!-- Result Box -->
+                <div id="wish-result-container" class="hidden">
+                    <div class="relative bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center">
+                        <i class="fas fa-quote-left text-yellow-300 text-3xl absolute top-2 left-2"></i>
+                        <p id="wish-content" class="text-gray-800 text-lg font-medium italic mb-4 leading-relaxed">
+                            <!-- Wish content goes here -->
+                        </p>
+                        <i class="fas fa-quote-right text-yellow-300 text-3xl absolute bottom-2 right-2"></i>
+                        
+                        <div class="flex justify-center gap-3 mt-4">
+                            <button onclick="copyWish()" class="text-sm bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-lg transition">
+                                <i class="fas fa-copy"></i> Sao chép
+                            </button>
+                            <button onclick="generateWish()" class="text-sm bg-red-100 hover:bg-red-200 text-red-700 px-4 py-2 rounded-lg transition">
+                                <i class="fas fa-redo"></i> Gieo quẻ khác
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="wish-loading" class="hidden text-center py-6">
+                    <div class="loading-dots text-red-500 text-2xl">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-2">Đang nặn chữ, chờ xíu nhé...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
     <section class="py-16 bg-soy relative">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
@@ -304,13 +395,15 @@
                 <div class="md:w-1/2">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-white p-4 rounded-lg shadow-md transform rotate-3">
-                             <img src="phoxoaisago.png" 
+                             <img src="https://images.unsplash.com/photo-1594488516901-d70377227dd1?q=80&w=400&auto=format&fit=crop" 
+                                  onerror="this.src='https://via.placeholder.com/300x200?text=Sago'"
                                   alt="Tào Phớ Xoài Sago"
                                   class="w-full h-32 rounded bg-gray-100 object-cover">
                             <p class="text-center mt-2 font-bold text-sm text-gray-700">Tào Phớ Xoài Sago</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg shadow-md transform -rotate-2 mt-8">
-                            <img src="phocaramel.png" 
+                            <img src="https://toplist.vn/images/800px/tao-pho-nghia-tan-670119.jpg" 
+                                 onerror="this.src='https://via.placeholder.com/300x200?text=Caramel'"
                                  alt="Tào Phớ Caramel"
                                  class="w-full h-32 rounded bg-gray-100 object-cover">
                             <p class="text-center mt-2 font-bold text-sm text-gray-700">Tào Phớ Caramel</p>
@@ -321,6 +414,7 @@
         </div>
     </section>
 
+    <!-- Menu Section -->
     <section id="menu" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -329,10 +423,12 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Item 1 -->
                 <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white relative overflow-hidden group">
                     <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">Best Seller</div>
                     <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
-                        <img src="chethapcam.png" 
+                        <img src="https://images.unsplash.com/photo-1559842426-e3d09a066601?q=80&w=400&auto=format&fit=crop" 
+                             onerror="this.src='https://via.placeholder.com/400x300?text=Thap+Cam'"
                              alt="Chè Thập Cẩm"
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -346,9 +442,11 @@
                     </div>
                 </div>
 
+                <!-- Item 2 -->
                 <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white group">
                     <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
-                        <img src="xoaimatcha.png" 
+                        <img src="https://cdn.tgdd.vn/2021/07/CookProduct/thumb-1200x676-13.jpg" 
+                             onerror="this.src='https://via.placeholder.com/400x300?text=Matcha'"
                              alt="Tào Phớ Xoài Matcha"
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -362,9 +460,11 @@
                     </div>
                 </div>
 
+                <!-- Item 3 -->
                 <div class="border rounded-2xl p-4 hover:shadow-lg transition bg-white group">
                     <div class="aspect-w-16 aspect-h-9 mb-4 rounded-xl bg-gray-100 overflow-hidden">
-                         <img src="phoxoaisago2.png" 
+                         <img src="https://images.unsplash.com/photo-1594488516901-d70377227dd1?q=80&w=400&auto=format&fit=crop" 
+                             onerror="this.src='https://via.placeholder.com/400x300?text=Sago'"
                              alt="Tào Phớ Xoài Sago"
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
@@ -388,6 +488,7 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-8">Hội "Đồng Nghiệp" Nói Gì?</h2>
@@ -414,6 +515,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white pt-12 pb-24 md:pb-6">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-gray-700 pb-8">
@@ -445,6 +547,7 @@
         </div>
     </footer>
 
+    <!-- MOBILE STICKY BAR -->
     <div id="footer-actions" class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex">
         <div id="mobile-popup-bubble" class="absolute -top-12 left-8 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg animate-bounce hidden pop-in">
             Chat ngay nhận ưu đãi! 👇
@@ -462,6 +565,7 @@
         </a>
     </div>
 
+    <!-- DESKTOP FLOATING WIDGET -->
     <div class="fixed bottom-8 right-8 z-50 hidden md:flex flex-col gap-4 items-end">
         <div id="desktop-popup-bubble" class="bg-white p-4 rounded-xl shadow-2xl mb-2 relative max-w-[220px] border border-green-100 hidden pop-in">
             <button onclick="this.parentElement.style.display='none'" class="absolute -top-2 -left-2 bg-gray-200 hover:bg-red-500 hover:text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shadow transition">&times;</button>
@@ -492,40 +596,32 @@
         </a>
     </div>
 
+    <!-- MAIN SCRIPT -->
     <script>
         const chatHistory = document.getElementById('chat-history');
         const userInput = document.getElementById('user-input');
         const loadingIndicator = document.getElementById('loading-indicator');
         
-        // CHÚ Ý QUAN TRỌNG:
-        // Để tránh bị các bot quét code phát hiện Key, mình tách nó thành 2 phần.
-        // Bạn hãy cắt đôi Key của bạn ra và điền vào 2 biến dưới đây.
-        // Ví dụ Key là "AIzaSy123456", thì điền:
-        // const part1 = "AIzaSy";
-        // const part2 = "123456";
-        
-        const part1 = "AIzaSyATuUtjMpD-xUO"; // Điền nửa đầu API Key vào đây
-        const part2 = "YuMG1XCMOlGIvWBeLme0"; // Điền nửa sau API Key vào đây
-        
-        const apiKey = part1 + part2; // Code tự động ghép lại
+        // --- API KEY CONFIG ---
+        const part1 = "AIzaSyATuUtjMpD-xUO"; 
+        const part2 = "YuMG1XCMOlGIvWBeLme0"; 
+        const apiKey = part1 + part2; 
 
-        // Logic hiển thị Popup tự động sau 3 giây
+        // --- POPUP LOGIC ---
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const mobileBubble = document.getElementById('mobile-popup-bubble');
                 const desktopBubble = document.getElementById('desktop-popup-bubble');
-                
                 if (mobileBubble) mobileBubble.classList.remove('hidden');
                 if (desktopBubble) desktopBubble.classList.remove('hidden');
-            }, 3000); // Hiện sau 3s
+            }, 3000);
         });
 
-        // Hàm cuộn xuống cuối chat
+        // --- CHAT LOGIC ---
         function scrollToBottom() {
             chatHistory.scrollTop = chatHistory.scrollHeight;
         }
 
-        // Xử lý khi nhấn Enter
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 sendMessage();
@@ -535,140 +631,123 @@
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
+            if (!apiKey) { alert("Thiếu API Key!"); return; }
 
-            // Nếu chưa điền Key vào code, báo lỗi
-            if (!apiKey) {
-                alert("Admin chưa cấu hình API Key trong code. Vui lòng liên hệ chủ quán!");
-                return;
-            }
-
-            // 1. Hiển thị tin nhắn người dùng
             appendMessage('user', text);
             userInput.value = '';
             loadingIndicator.classList.remove('hidden');
 
             try {
-                // 2. Gọi API Gemini
-                const response = await callGeminiAPI(text, apiKey);
-                
-                // 3. Hiển thị phản hồi từ Gemini
+                // Sử dụng prompt chat thông thường
+                const prompt = `
+                    Bạn là một nhân viên văn phòng Hà Nội vui tính, trẻ trung, là 'đồng nghiệp ảo' của quán Tào Phớ 88.
+                    Người dùng đang than thở: "${text}".
+                    Nhiệm vụ:
+                    1. Đáp lại 1-2 câu an ủi thấu hiểu (deadline, sếp, lương, chill...).
+                    2. Gợi ý order Tào Phớ Thập Cẩm, Sữa Đậu, hoặc Trân Châu Đường Đen.
+                    Phong cách: Hài hước, ngắn gọn, thân thiện.
+                `;
+                const response = await callGeminiAPI(prompt, apiKey);
                 loadingIndicator.classList.add('hidden');
                 appendMessage('ai', response);
             } catch (error) {
                 console.error("Lỗi:", error);
                 loadingIndicator.classList.add('hidden');
-                appendMessage('ai', "Hic, mạng lag quá đồng nghiệp ơi. Thử lại sau nhé!");
+                appendMessage('ai', "Mạng lag quá, thử lại sau nhé!");
             }
         }
 
         function appendMessage(sender, text) {
             const div = document.createElement('div');
             div.className = 'flex gap-3 mb-4';
-            
             if (sender === 'ai') {
-                div.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center text-sm">🤖</div>
-                    <div class="ai-bubble p-4 text-gray-700 text-sm max-w-[85%] animate-fade-in">
-                        ${text}
-                    </div>
-                `;
+                div.innerHTML = `<div class="w-8 h-8 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center text-sm">🤖</div><div class="ai-bubble p-4 text-gray-700 text-sm max-w-[85%] animate-fade-in">${text}</div>`;
             } else {
                 div.className = 'flex gap-3 mb-4 flex-row-reverse';
-                div.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-sm">👤</div>
-                    <div class="user-bubble p-4 text-sm max-w-[85%] animate-fade-in">
-                        ${text}
-                    </div>
-                `;
+                div.innerHTML = `<div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-sm">👤</div><div class="user-bubble p-4 text-sm max-w-[85%] animate-fade-in">${text}</div>`;
             }
-            
             chatHistory.appendChild(div);
             scrollToBottom();
         }
 
-        async function callGeminiAPI(userText, key) {
+        // --- CORE API FUNCTION ---
+        async function callGeminiAPI(promptText, key) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
-
-            const prompt = `
-                Bạn là một nhân viên văn phòng Hà Nội vui tính, trẻ trung, là 'đồng nghiệp ảo' của quán Tào Phớ 88.
-                Người dùng đang than thở: "${userText}".
-                
-                Nhiệm vụ của bạn:
-                1. Đáp lại bằng 1-2 câu an ủi thật sự thấu hiểu nỗi khổ công sở (dùng từ ngữ gần gũi như: deadline, sếp, họp hành, ting ting, chill...).
-                2. Gợi ý họ order ngay 1 trong 3 món sau để giải toả (giải thích ngắn gọn tại sao món đó hợp mood này):
-                   - Chè Thập Cẩm (để nạp năng lượng)
-                   - Tào Phớ Xoài Matcha (để nhẹ bụng, chill)
-                   - Tào Phớ Xoài Sago (để thêm ngọt ngào cho đời bớt đắng)
-                
-                Phong cách: Hài hước, ngắn gọn, thân thiện. Không sáo rỗng.
-            `;
-
-            const payload = {
-                contents: [{
-                    parts: [{ text: prompt }]
-                }]
-            };
+            const payload = { contents: [{ parts: [{ text: promptText }] }] };
 
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
-            if (!response.ok) {
-                throw new Error(`API call failed with status ${response.status}`);
-            }
-
+            if (!response.ok) throw new Error(`API error: ${response.status}`);
             const data = await response.json();
             return data.candidates[0].content.parts[0].text;
         }
 
-        // Add fade-in animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
+        // --- NEW FEATURE: AI GIEO QUẺ LỜI CHÚC ---
+        async function generateWish() {
+            const recipient = document.getElementById('wish-recipient').value;
+            const occasion = document.getElementById('wish-occasion').value;
+            const resultContainer = document.getElementById('wish-result-container');
+            const loadingDiv = document.getElementById('wish-loading');
+            const contentP = document.getElementById('wish-content');
+            
+            // Ẩn kết quả cũ, hiện loading
+            resultContainer.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+
+            const prompt = `
+                Đóng vai "Thánh Thơ Tào Phớ 88" (vui tính, lầy lội, chuẩn Gen Z Hà Nội).
+                Hãy viết 1 lời chúc ngắn gọn (dưới 50 từ) dành cho đối tượng: "${recipient}" nhân dịp "${occasion}".
+                
+                Yêu cầu bắt buộc:
+                1. Hài hước, vần điệu hoặc bắt trend.
+                2. Phải nhắc khéo đến việc đi ăn "Tào Phớ 88" để may mắn/giải đen/ngọt ngào.
+                3. Không được sến súa, phải "chất".
+                
+                Ví dụ nếu chúc Sếp: "Chúc Sếp tiền đầy túi, tình đầy tim, deadline biến mất, chỉ có Tào Phớ 88 là luôn có mặt!"
+            `;
+
+            try {
+                const wish = await callGeminiAPI(prompt, apiKey);
+                contentP.innerText = wish;
+                loadingDiv.classList.add('hidden');
+                resultContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                loadingDiv.classList.add('hidden');
+                alert("AI đang đi ăn tào phớ rồi, thử lại sau nhé!");
             }
-            .animate-fade-in {
-                animation: fadeIn 0.3s ease-out forwards;
-            }
-        `;
-        document.head.appendChild(style);
+        }
+
+        function copyWish() {
+            const text = document.getElementById('wish-content').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Đã copy lời chúc! Gửi ngay cho nóng!");
+            });
+        }
     </script>
 
+    <!-- Fake Order Popup Code (Giữ nguyên như cũ) -->
     <div id="fake-order-popup" class="fixed bottom-24 left-4 md:bottom-8 md:left-8 z-40 max-w-[300px] bg-white rounded-xl shadow-2xl border border-green-100 p-3 transform transition-all duration-700 translate-y-20 opacity-0 flex items-center gap-3 invisible">
         <div class="relative">
             <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center overflow-hidden border border-green-200">
                  <img id="notify-img" src="https://toplist.vn/images/800px/tao-pho-nghia-tan-670119.jpg" class="w-full h-full object-cover" alt="Món ăn">
             </div>
-            <div class="absolute -bottom-1 -right-1 bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-white">
-                Mới
-            </div>
+            <div class="absolute -bottom-1 -right-1 bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-white">Mới</div>
         </div>
-        
         <div class="flex-1 min-w-0">
-            <p class="text-sm font-bold text-gray-800 truncate">
-                <span id="notify-name" class="text-green-700">Chị Lan</span> 
-                <span class="font-normal text-gray-500 text-xs"> - <span id="notify-loc">Cầu Giấy</span></span>
-            </p>
-            <p class="text-xs text-gray-600 truncate">
-                Vừa đặt: <b id="notify-item">2 Thập Cẩm</b>
-            </p>
-            <p class="text-[10px] text-gray-400 mt-0.5 flex items-center gap-1">
-                <i class="fas fa-check-circle text-green-500"></i> <span id="notify-time">2 phút trước</span>
-            </p>
+            <p class="text-sm font-bold text-gray-800 truncate"><span id="notify-name" class="text-green-700">Chị Lan</span> <span class="font-normal text-gray-500 text-xs">- <span id="notify-loc">Cầu Giấy</span></span></p>
+            <p class="text-xs text-gray-600 truncate">Vừa đặt: <b id="notify-item">2 Thập Cẩm</b></p>
+            <p class="text-[10px] text-gray-400 mt-0.5 flex items-center gap-1"><i class="fas fa-check-circle text-green-500"></i> <span id="notify-time">2 phút trước</span></p>
         </div>
-
-        <button onclick="closeNotify()" class="text-gray-300 hover:text-red-400 absolute top-1 right-2 text-xs p-1">
-            <i class="fas fa-times"></i>
-        </button>
+        <button onclick="closeNotify()" class="text-gray-300 hover:text-red-400 absolute top-1 right-2 text-xs p-1"><i class="fas fa-times"></i></button>
     </div>
 
     <script>
-        // Dữ liệu giả lập (Bạn có thể thêm tên và món vào đây)
+        // Dữ liệu giả lập
         const fakeData = {
             names: ["Chị Lan", "Anh Hùng", "Bạn Mai", "Huyền Trang", "Ngọc Anh", "Thanh Tùng", "Bác Minh", "Em Hương", "Team Marketing", "Phòng Kế Toán"],
             locations: ["Cầu Giấy", "Mỹ Đình", "Hồ Tùng Mậu", "Lê Đức Thọ", "Duy Tân", "Keangnam", "Xuân Thủy", "Mai Dịch"],
@@ -689,66 +768,30 @@
         const imgEl = document.getElementById('notify-img');
         const timeEl = document.getElementById('notify-time');
 
-        // Hàm lấy ngẫu nhiên 1 phần tử trong mảng
-        function getRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
+        function getRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-        // Hàm hiển thị thông báo
         function showNotification() {
-            // 1. Random dữ liệu mới
             const randomItem = getRandom(fakeData.items);
-            
             nameEl.innerText = getRandom(fakeData.names);
             locEl.innerText = getRandom(fakeData.locations);
             itemEl.innerText = randomItem.name;
             imgEl.src = randomItem.img;
             timeEl.innerText = getRandom(fakeData.times);
-
-            // 2. Hiện popup (Thêm hiệu ứng trượt lên)
             popup.classList.remove('invisible', 'translate-y-20', 'opacity-0');
-            
-            // 3. Tự động ẩn sau 6 giây
-            setTimeout(() => {
-                closeNotify();
-            }, 6000);
+            setTimeout(() => { closeNotify(); }, 6000);
         }
 
-        // Hàm đóng thông báo
         function closeNotify() {
             popup.classList.add('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                popup.classList.add('invisible');
-            }, 700); // Đợi animation xong mới ẩn hẳn
+            setTimeout(() => { popup.classList.add('invisible'); }, 700);
         }
 
-        // === CẤU HÌNH THỜI GIAN ===
-        // Lần đầu tiên hiện sau 5 giây khi vào web
         setTimeout(showNotification, 5000);
-
-        // Sau đó cứ ngẫu nhiên từ 30s - 60s sẽ hiện 1 lần
         function loopNotification() {
-            // Random thời gian nghỉ từ 30.000ms (30s) đến 60.000ms (1 phút)
             const randomTime = Math.floor(Math.random() * (60000 - 30000 + 1) + 30000);
-            
-            setTimeout(() => {
-                showNotification();
-                loopNotification(); // Gọi đệ quy để lặp lại liên tục
-            }, randomTime);
+            setTimeout(() => { showNotification(); loopNotification(); }, randomTime);
         }
-
-        // Bắt đầu vòng lặp
         loopNotification();
     </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
